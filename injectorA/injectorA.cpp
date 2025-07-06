@@ -5,7 +5,7 @@
 #include <libloaderapi.h>
 #include <TlHelp32.h>
 
-#define APP "ac_client.exe"
+#define APP ".exe"
 #define DLL_NAME "internalTemplate.dll"
 
 using namespace std;
