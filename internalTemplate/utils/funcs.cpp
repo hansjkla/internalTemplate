@@ -29,12 +29,15 @@ bool func::CreateConsole()
 
 void func::unload(const HMODULE instance)
 {
-	if (crd3d9::d3d9) gui::Destroy();
+	uninjecting = true;
+
+    if (crd3d9::d3d9) gui::Destroy();
 
 	if (MinHook) func::DestroyMH();
 
 	if (console) FreeConsole();
 
+	Sleep(100);
 	FreeLibraryAndExitThread(instance, 0);
 }
 

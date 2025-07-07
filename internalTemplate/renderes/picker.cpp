@@ -16,8 +16,6 @@ void RenderQueue::ExecuteAll()
 
 bool CreateRenderer(RendererOptions renderer)
 {
-    if (renderer == RendererOptions::NONE) return false;
-
     switch (renderer)
     {
     case RendererOptions::NONE:

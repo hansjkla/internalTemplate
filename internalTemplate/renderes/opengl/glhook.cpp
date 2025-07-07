@@ -11,6 +11,8 @@ unsigned int glHook::base = 0;
 
 BOOL __stdcall glHook::hkwglSawpBuffers(HDC hDc)
 {
+    if (uninjecting) return owglSwapBuffers(hDc);
+
     HDC currentHDC = wglGetCurrentDC();
     if (!glFont.bBuilt || currentHDC != glFont.hDc)
     {
