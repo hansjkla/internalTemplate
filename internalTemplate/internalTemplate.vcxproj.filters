@@ -384,6 +384,15 @@
     <ClInclude Include="ext\include\nlohmann\ordered_map.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="renderes\opengl\menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\imgui\imgui_impl_opengl3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\imgui\imgui.cpp">
@@ -462,6 +471,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="renderes\RendererOptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\opengl\menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\imgui\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
