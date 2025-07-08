@@ -9,7 +9,15 @@
 #include <windows.h>
 #include <GL/GL.h>
 
+#include "glhook.h"
+
 namespace menuGL
 {
+	extern bool setupMenuGL;
+	extern bool showDemoWindow;
+	inline WNDPROC originalWindowProcessx = nullptr;
+
 	bool SetupImGuiGL();
+	void renderDemoWindow();
+	void Destroy();
 }

@@ -33,6 +33,8 @@ void func::unload(const HMODULE instance)
 
     if (crd3d9::d3d9) gui::Destroy();
 
+	menuGL::Destroy();
+
 	if (MinHook) func::DestroyMH();
 
 	if (console) FreeConsole();

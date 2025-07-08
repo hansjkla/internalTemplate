@@ -2,8 +2,9 @@
 
 void entryPoint()
 {
+	CreateRenderer(RendererOptions::OPENGL);
 
-	while (!(GetAsyncKeyState(VK_F1) & 0x8000))
+	while (!GetAsyncKeyState(VK_F1))
 	{
 
 	}

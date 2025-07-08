@@ -9,6 +9,7 @@
 #include "gltext.h"
 #include "gldraw.h"
 #include "../picker.h"
+#include "menu.h"
 
 typedef BOOL(__stdcall* wglSwapBuffers_t) (HDC hDc);
 extern wglSwapBuffers_t owglSwapBuffers;
@@ -16,6 +17,7 @@ extern wglSwapBuffers_t owglSwapBuffers;
 namespace glHook
 {
 	extern unsigned int base;
+	extern HWND gameWindow;
 
 	extern LPVOID targetFunc;
 	extern bool GlEnabled;

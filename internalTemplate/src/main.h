@@ -9,5 +9,6 @@
 #include "../renderes/opengl/glText.h"
 #include "../renderes/picker.h"
 #include "../ext/json/nlohmann/json.hpp"
+#include "../renderes/opengl/menu.h"
 
 void entryPoint();

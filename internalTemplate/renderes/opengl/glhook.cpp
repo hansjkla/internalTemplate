@@ -2,6 +2,7 @@
 
 wglSwapBuffers_t owglSwapBuffers = nullptr;
 LPVOID glHook::targetFunc = nullptr;
+HWND glHook::gameWindow = nullptr;
 
 bool glHook::GlEnabled = false;
 GL::Font glHook::glFont;
@@ -19,10 +20,16 @@ BOOL __stdcall glHook::hkwglSawpBuffers(HDC hDc)
         glFont.Build(15);
     }
 
+    if (!gameWindow) gameWindow = WindowFromDC(wglGetCurrentDC());
+    
     base = glFont.base;
 
     GL::SetupOrtho();
+
     RenderQueue::ExecuteAll();
+    menuGL::SetupImGuiGL();
+    menuGL::renderDemoWindow();
+
     GL::RestoreGl();
     
 	return owglSwapBuffers(hDc);

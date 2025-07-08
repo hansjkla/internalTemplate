@@ -5,6 +5,7 @@
 //#include "../renderes/d3d9/hooks.h"
 #include "../ext/mihook/minhook.h"
 #include "../renderes/opengl/glhook.h"
+#include "../renderes/opengl/menu.h"
 
 namespace func
 {

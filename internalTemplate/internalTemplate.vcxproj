@@ -316,8 +316,8 @@
     <ClCompile Include="renderes\RendererOptions.cpp" />
     <ClCompile Include="src\conts.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
-    <ClCompile Include="utils\funcs.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="utils\funcs.cpp" />
     <ClCompile Include="utils\math.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
