@@ -20,13 +20,13 @@ BOOL __stdcall glHook::hkwglSawpBuffers(HDC hDc)
     }
 
     if (!gameWindow) gameWindow = WindowFromDC(wglGetCurrentDC());
-    
+
     base = glFont.base;
 
     GL::SetupOrtho();
 
     RenderQueue::ExecuteAll();
-    //menu::setupMenu();
+    menu::SetupMenu(nullptr);
     menu::Render();
 
     GL::RestoreGl();

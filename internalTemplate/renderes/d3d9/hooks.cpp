@@ -28,7 +28,7 @@ void hooks::Setup()
 
 	MinHook = true;
 
-	gui::DestroyDirectX();
+	//gui::DestroyDirectX();
 }
 
 
@@ -38,7 +38,7 @@ long __stdcall hooks::EndScene(IDirect3DDevice9* device) noexcept
 
 	const auto result = EndSceneOriginal(device, device);
 
-	if (_ReturnAddress() == returnAddress)
+	if (_ReturnAddress() == returnAddress || uninjecting)
 		return result;
 
 	if (!gameWindow)
@@ -49,9 +49,12 @@ long __stdcall hooks::EndScene(IDirect3DDevice9* device) noexcept
 		gameWindow = params.hFocusWindow;
 	}
 	
-	menu::setupMenu();
-	menu::Render();
-	
+	if (!menu::isMenuSetup)
+		menu::SetupMenu(device);
+
+	if (menu::menuOpen)
+		menu::Render();
+
 	//D3DRECT rect = { 100, 100, 100 + 100,100 + 50 };
 	//device->Clear(1, &rect, D3DCLEAR_TARGET, D3DCOLOR_ARGB(255, 255, 255, 255), 0, 0);
 

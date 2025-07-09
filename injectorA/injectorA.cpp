@@ -5,7 +5,7 @@
 #include <libloaderapi.h>
 #include <TlHelp32.h>
 
-#define APP "csgo.exe"
+#define APP ".exe"
 #define DLL_NAME "internalTemplate.dll"
 
 using namespace std;

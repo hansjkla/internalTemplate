@@ -20,7 +20,9 @@ namespace glHook
 
 	extern LPVOID targetFunc;
 	extern bool GlEnabled;
+
 	BOOL __stdcall hkwglSawpBuffers(HDC hDc);
+
 	bool CreateGl();
 	bool DisableGl();
 	bool EnableGl();

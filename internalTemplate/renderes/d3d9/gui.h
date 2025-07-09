@@ -1,6 +1,5 @@
 #pragma once
 #include <d3d9.h>
-#include "../../src/conts.h"
 
 namespace gui
 {

@@ -19,14 +19,6 @@ LRESULT CALLBACK WindowsProcess(
 	UINT msg,
 	WPARAM wParam,
 	LPARAM lParam
-);
-
-
-LRESULT CALLBACK WindowsProcess(
-	HWND hWnd,
-	UINT msg,
-	WPARAM wParam,
-	LPARAM lParam
 )
 {
 	if (GetAsyncKeyState(VK_INSERT) & 1)
@@ -49,7 +41,7 @@ LRESULT CALLBACK WindowsProcess(
 }
 
 
-void menu::setupMenu()
+void menu::SetupMenu(LPDIRECT3DDEVICE9 device)
 {
 	if (isMenuSetup)
 		return;
@@ -60,7 +52,8 @@ void menu::setupMenu()
 		reinterpret_cast<LONG_PTR>(WindowsProcess)
 	);
 
-	IMGUI_CHECKVERSION();
+	if (Renderer == RendererOptions::OPENGL) IMGUI_CHECKVERSION();
+	
 	ImGui::CreateContext();
 
 	ImGui::StyleColorsDark();
@@ -73,7 +66,7 @@ void menu::setupMenu()
 		return;
 
 	case RendererOptions::DX9:
-		ImGui_ImplDX9_Init(gui::device);
+		ImGui_ImplDX9_Init(device);
 		break;
 
 	case RendererOptions::DX10:
@@ -102,7 +95,7 @@ void menu::setupMenu()
 
 void menu::Render()
 {
-	if (!isMenuSetup) return;
+	if (!isMenuSetup || !menuOpen) return;
 
 	switch (Renderer)
 	{
@@ -134,9 +127,7 @@ void menu::Render()
 
 
 	//ImGui::ShowDemoWindow(&showDemoWindow);
-	ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_Always);
-	ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_Always);
-	ImGui::Begin("cool menu", &menuOpen);
+	ImGui::Begin("cool", &showDemoWindow);
 	ImGui::End();
 
 	ImGui::EndFrame();

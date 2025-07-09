@@ -13,6 +13,13 @@
 #include "../RendererOptions.h"
 #include "../d3d9/gui.h"
 
+LRESULT CALLBACK WindowsProcess(
+	HWND hWnd,
+	UINT msg,
+	WPARAM wParam,
+	LPARAM lParam
+);
+
 namespace menu
 {
 	extern bool isMenuSetup;
@@ -21,7 +28,7 @@ namespace menu
 
 	inline WNDPROC originalWindowProcess = nullptr;
 
-	void setupMenu();
+	void SetupMenu(LPDIRECT3DDEVICE9 device);
 	void Render();
 	void Destroy();
 }
