@@ -273,6 +273,10 @@
     <ClInclude Include="ext\mihook\hde\table64.h" />
     <ClInclude Include="ext\mihook\minhook.h" />
     <ClInclude Include="ext\mihook\trampoline.h" />
+    <ClInclude Include="renderes\d3d9\crd3d9.h" />
+    <ClInclude Include="renderes\d3d9\drawing.h" />
+    <ClInclude Include="renderes\d3d9\gui.h" />
+    <ClInclude Include="renderes\d3d9\hooks.h" />
     <ClInclude Include="renderes\menu\menu.h" />
     <ClInclude Include="renderes\opengl\gldraw.h" />
     <ClInclude Include="renderes\opengl\gltext.h" />
@@ -300,6 +304,10 @@
     <ClCompile Include="ext\mihook\hde\hde64.c" />
     <ClCompile Include="ext\mihook\hook.c" />
     <ClCompile Include="ext\mihook\trampoline.c" />
+    <ClCompile Include="renderes\d3d9\crd3d9.cpp" />
+    <ClCompile Include="renderes\d3d9\drawing.cpp" />
+    <ClCompile Include="renderes\d3d9\gui.cpp" />
+    <ClCompile Include="renderes\d3d9\hooks.cpp" />
     <ClCompile Include="renderes\menu\menu.cpp" />
     <ClCompile Include="renderes\opengl\gldraw.cpp" />
     <ClCompile Include="renderes\opengl\gltext.cpp" />

@@ -6,19 +6,6 @@
 
 #include "stdexcept"
 
-extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
-	HWND hWnd,
-	UINT msg,
-	WPARAM wParam,
-	LPARAM lParam
-);
-
-LRESULT CALLBACK WindowsProcess(
-	HWND hWnd,
-	UINT msg,
-	WPARAM wParam,
-	LPARAM lParam
-);
 
 bool gui::SetupWindowClass(const char* windowClassName) noexcept
 {
@@ -160,83 +147,4 @@ bool gui::Setup()
 
 	DestroyWindow();
 	DestroyWindowClass();
-}
-
-
-void gui::SetupMenu(LPDIRECT3DDEVICE9 device) noexcept
-{
-	auto params = D3DDEVICE_CREATION_PARAMETERS{};
-	device->GetCreationParameters(&params);
-
-	window = params.hFocusWindow;
-
-	originalWindowProcess = (WNDPROC)SetWindowLongPtr(
-		window,
-		GWLP_WNDPROC,
-		reinterpret_cast<LONG_PTR>(WindowsProcess)
-	);
-
-	ImGui::CreateContext();
-	ImGui::StyleColorsDark();
-
-	ImGui_ImplWin32_Init(window);
-	ImGui_ImplDX9_Init(device);
-
-	setup = true;
-}
-
-void gui::Destroy() noexcept
-{
-	ImGui_ImplDX9_Shutdown();
-	ImGui_ImplWin32_Shutdown();
-	ImGui::DestroyContext();
-
-	SetWindowLongPtr(
-		window,
-		GWLP_WNDPROC,
-		reinterpret_cast<LONG_PTR>(originalWindowProcess)
-	);
-
-	DestroyDirectX();
-}
-
-
-void gui::Render() noexcept
-{
-	ImGui_ImplDX9_NewFrame();
-	ImGui_ImplWin32_NewFrame();
-	ImGui::NewFrame();
-	
-	ImGui::Begin("cool menu", &open);
-	ImGui::End();
-
-	ImGui::EndFrame();
-	ImGui::Render();
-	ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
-}
-
-LRESULT CALLBACK WindowsProcess(
-	HWND hWnd,
-	UINT msg,
-	WPARAM wParam,
-	LPARAM lParam
-)
-{
-	if (GetAsyncKeyState(VK_INSERT) & 1)
-		gui::open = !gui::open;
-
-	if (gui::open && ImGui_ImplWin32_WndProcHandler(
-		hWnd,
-		msg,
-		wParam,
-		lParam
-	)) return 1L;
-
-	return CallWindowProc(
-		gui::originalWindowProcess,
-		hWnd,
-		msg,
-		wParam,
-		lParam
-	);
 }

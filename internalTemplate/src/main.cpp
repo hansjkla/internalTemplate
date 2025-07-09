@@ -2,8 +2,8 @@
 
 void entryPoint()
 {
-	CreateRenderer(RendererOptions::OPENGL);
-
+	CreateRenderer(RendererOptions::DX9);
+	//MessageBox(NULL, "hello", "", NULL);
 	while (!GetAsyncKeyState(VK_F1))
 	{
 

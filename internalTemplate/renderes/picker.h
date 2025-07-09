@@ -4,7 +4,7 @@
 #include <functional>
 #include <cstdarg>
 #include <cstdio>
-//#include "d3d9/crd3d9.h"
+#include "d3d9/crd3d9.h"
 #include "opengl/glhook.h"
 #include "RendererOptions.h"
 

@@ -51,59 +51,58 @@ LRESULT CALLBACK WindowsProcess(
 
 void menu::setupMenu()
 {
-	if (!isMenuSetup)
+	if (isMenuSetup)
+		return;
+	
+	originalWindowProcess = (WNDPROC)SetWindowLongPtr(
+		gameWindow,
+		GWLP_WNDPROC,
+		reinterpret_cast<LONG_PTR>(WindowsProcess)
+	);
+
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+
+	ImGui::StyleColorsDark();
+
+	ImGui_ImplWin32_Init(gameWindow);
+	
+	switch (Renderer)
 	{
-		originalWindowProcess = (WNDPROC)SetWindowLongPtr(
-			gameWindow,
-			GWLP_WNDPROC,
-			reinterpret_cast<LONG_PTR>(WindowsProcess)
-		);
+	case RendererOptions::NONE:
+		return;
 
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
+	case RendererOptions::DX9:
+		ImGui_ImplDX9_Init(gui::device);
+		break;
 
-		ImGui::StyleColorsDark();
+	case RendererOptions::DX10:
+		return;
 
-		//ImGui_ImplWin32_InitForOpenGL(gameWindow);
-		ImGui_ImplWin32_Init(gameWindow);
+	case RendererOptions::DX11:
+		return;
 
-		switch (Renderer)
-		{
-		case RendererOptions::NONE:
-			return;
+	case RendererOptions::DX12:
+		return;
 
-		case RendererOptions::DX9:
-			ImGui_ImplDX9_Init(gui::device);
-			break;
+	case RendererOptions::OPENGL:
+		ImGui_ImplOpenGL3_Init();
+		break;
 
-		case RendererOptions::DX10:
-			return;
+	case RendererOptions::VULKAN:
+		return;
 
-		case RendererOptions::DX11:
-			return;
-
-		case RendererOptions::DX12:
-			return;
-
-		case RendererOptions::OPENGL:
-			ImGui_ImplOpenGL3_Init();
-			break;
-
-		case RendererOptions::VULKAN:
-			return;
-
-		default:
-			return;
-		}
-		
-		isMenuSetup = true;
+	default:
+		break;
 	}
+		
+	isMenuSetup = true;
 }
 
 
 void menu::Render()
 {
-	if (!menuOpen) return;
+	if (!isMenuSetup) return;
 
 	switch (Renderer)
 	{
@@ -134,12 +133,15 @@ void menu::Render()
 	ImGui::NewFrame();
 
 
-	ImGui::ShowDemoWindow(&showDemoWindow);
+	//ImGui::ShowDemoWindow(&showDemoWindow);
+	ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_Always);
+	ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_Always);
+	ImGui::Begin("cool menu", &menuOpen);
+	ImGui::End();
 
-
-	ImGui::Render();
 	ImGui::EndFrame();
-
+	ImGui::Render();
+	
 	switch (Renderer)
 	{
 	case RendererOptions::NONE:

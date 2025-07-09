@@ -1,15 +1,11 @@
 #pragma once
 #include <d3d9.h>
+#include "../../src/conts.h"
 
 namespace gui
 {
-	inline bool open = true;
-
-	inline bool setup = false;
-
 	inline HWND window = nullptr;
 	inline WNDCLASSEX windowClass = {};
-	inline WNDPROC originalWindowProcess = nullptr;
 
 	inline LPDIRECT3DDEVICE9 device = nullptr;
 	inline LPDIRECT3D9 d3d9 = nullptr;
@@ -24,9 +20,4 @@ namespace gui
 	bool DestroyDirectX() noexcept;
 
 	bool Setup();
-
-	void SetupMenu(LPDIRECT3DDEVICE9 device) noexcept;
-	void Destroy() noexcept;
-
-	void Render() noexcept;
 }

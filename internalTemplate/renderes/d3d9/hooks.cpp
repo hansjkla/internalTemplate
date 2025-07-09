@@ -41,12 +41,17 @@ long __stdcall hooks::EndScene(IDirect3DDevice9* device) noexcept
 	if (_ReturnAddress() == returnAddress)
 		return result;
 
-	if (!gui::setup)
-		gui::SetupMenu(device);
+	if (!gameWindow)
+	{
+		auto params = D3DDEVICE_CREATION_PARAMETERS{};
+		device->GetCreationParameters(&params);
 
-	if (gui::open)
-		gui::Render();
-
+		gameWindow = params.hFocusWindow;
+	}
+	
+	menu::setupMenu();
+	menu::Render();
+	
 	//D3DRECT rect = { 100, 100, 100 + 100,100 + 50 };
 	//device->Clear(1, &rect, D3DCLEAR_TARGET, D3DCOLOR_ARGB(255, 255, 255, 255), 0, 0);
 

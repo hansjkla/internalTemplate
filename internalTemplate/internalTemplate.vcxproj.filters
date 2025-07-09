@@ -381,6 +381,18 @@
     <ClInclude Include="renderes\menu\menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="renderes\d3d9\crd3d9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderes\d3d9\drawing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderes\d3d9\gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderes\d3d9\hooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\imgui\imgui.cpp">
@@ -453,6 +465,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="renderes\menu\menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\d3d9\crd3d9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\d3d9\drawing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\d3d9\gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\d3d9\hooks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
