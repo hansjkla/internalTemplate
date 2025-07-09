@@ -31,9 +31,11 @@ void func::unload(const HMODULE instance)
 {
 	uninjecting = true;
 
-    if (crd3d9::d3d9) gui::Destroy();
+    //if (crd3d9::d3d9) gui::Destroy();
 
-	menuGL::Destroy();
+	//menuGL::Destroy();
+
+	if (menu::isMenuSetup) menu::Destroy();
 
 	if (MinHook) func::DestroyMH();
 

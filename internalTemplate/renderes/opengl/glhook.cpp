@@ -2,7 +2,6 @@
 
 wglSwapBuffers_t owglSwapBuffers = nullptr;
 LPVOID glHook::targetFunc = nullptr;
-HWND glHook::gameWindow = nullptr;
 
 bool glHook::GlEnabled = false;
 GL::Font glHook::glFont;
@@ -27,8 +26,8 @@ BOOL __stdcall glHook::hkwglSawpBuffers(HDC hDc)
     GL::SetupOrtho();
 
     RenderQueue::ExecuteAll();
-    menuGL::SetupImGuiGL();
-    menuGL::renderDemoWindow();
+    menu::setupMenu();
+    menu::Render();
 
     GL::RestoreGl();
     

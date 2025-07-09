@@ -5,7 +5,7 @@ extern bool console;
 extern bool MinHook;
 extern bool uninjecting;
 
-extern HWND currentWindow;
+extern HWND gameWindow;
 
 extern HMODULE hModule;
 extern uintptr_t baseAddress;

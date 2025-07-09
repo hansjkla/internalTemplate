@@ -22,7 +22,7 @@ bool CreateRenderer(RendererOptions renderer)
         return false;
     case RendererOptions::DX9:
         Renderer = RendererOptions::DX9;
-        return (crd3d9::Create());
+        //return (crd3d9::Create());
 
     case RendererOptions::DX10:
         Renderer = RendererOptions::DX10;

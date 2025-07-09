@@ -63,15 +63,6 @@
     <ClInclude Include="ext\mihook\trampoline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="renderes\d3d9\crd3d9.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="renderes\d3d9\gui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="renderes\d3d9\hooks.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\conts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -88,9 +79,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="utils\includes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="renderes\d3d9\drawing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="renderes\opengl\glhook.h">
@@ -384,13 +372,13 @@
     <ClInclude Include="ext\include\nlohmann\ordered_map.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="renderes\opengl\menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ext\imgui\imgui_impl_opengl3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ext\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderes\menu\menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -431,15 +419,6 @@
     <ClCompile Include="ext\mihook\trampoline.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="renderes\d3d9\crd3d9.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="renderes\d3d9\gui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="renderes\d3d9\hooks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\conts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -450,9 +429,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="utils\math.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="renderes\d3d9\drawing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="renderes\opengl\glhook.cpp">
@@ -470,13 +446,13 @@
     <ClCompile Include="renderes\RendererOptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="renderes\opengl\menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ext\imgui\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\menu\menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
