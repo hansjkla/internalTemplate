@@ -77,7 +77,7 @@ void DrawFilledRect(float x, float y, float width, float height, const unsigned 
         return;
 
     case RendererOptions::DX9:
-        return;
+        return RenderQueue::Submit([x, y, width, height, color] {Dx9Drawing::DrawFilledRect(x, y, width, height, color);  });
 
     case RendererOptions::DX10:
         return;

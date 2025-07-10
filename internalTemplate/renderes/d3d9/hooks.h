@@ -8,12 +8,12 @@
 
 #include "../../ext/mihook/minhook.h"
 
-#include "../../ext/imgui/imgui.h"
-#include "../../ext/imgui/imgui_impl_win32.h"
-#include "../../ext/imgui/imgui_impl_dx9.h"
+#include "drawing.h"
 //
 namespace hooks
 {
+	extern LPDIRECT3DDEVICE9 realDevice;
+
 	void Setup();
 	
 	constexpr void* VirtualFunction(void* thisptr, size_t index) noexcept

@@ -1,5 +1,7 @@
 #include "hooks.h"
 
+LPDIRECT3DDEVICE9 hooks::realDevice = nullptr;
+
 void hooks::Setup()
 {
 	if (!MinHook)
@@ -41,6 +43,8 @@ long __stdcall hooks::EndScene(IDirect3DDevice9* device) noexcept
 	if (_ReturnAddress() == returnAddress || uninjecting)
 		return result;
 
+	if (realDevice != device) realDevice = device;
+
 	if (!gameWindow)
 	{
 		auto params = D3DDEVICE_CREATION_PARAMETERS{};
@@ -49,14 +53,13 @@ long __stdcall hooks::EndScene(IDirect3DDevice9* device) noexcept
 		gameWindow = params.hFocusWindow;
 	}
 	
+	RenderQueue::ExecuteAll();
+
 	if (!menu::isMenuSetup)
-		menu::SetupMenu(device);
+		menu::SetupMenu();
 
 	if (menu::menuOpen)
 		menu::Render();
-
-	//D3DRECT rect = { 100, 100, 100 + 100,100 + 50 };
-	//device->Clear(1, &rect, D3DCLEAR_TARGET, D3DCOLOR_ARGB(255, 255, 255, 255), 0, 0);
 
 	return result;
 }

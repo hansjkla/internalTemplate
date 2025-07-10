@@ -26,7 +26,7 @@ BOOL __stdcall glHook::hkwglSawpBuffers(HDC hDc)
     GL::SetupOrtho();
 
     RenderQueue::ExecuteAll();
-    menu::SetupMenu(nullptr);
+    menu::SetupMenu();
     menu::Render();
 
     GL::RestoreGl();

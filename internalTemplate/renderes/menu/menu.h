@@ -12,6 +12,7 @@
 #include "../../src/conts.h"
 #include "../RendererOptions.h"
 #include "../d3d9/gui.h"
+#include "../d3d9/hooks.h"
 
 LRESULT CALLBACK WindowsProcess(
 	HWND hWnd,
@@ -28,7 +29,7 @@ namespace menu
 
 	inline WNDPROC originalWindowProcess = nullptr;
 
-	void SetupMenu(LPDIRECT3DDEVICE9 device);
+	void SetupMenu();
 	void Render();
 	void Destroy();
 }

@@ -41,7 +41,7 @@ LRESULT CALLBACK WindowsProcess(
 }
 
 
-void menu::SetupMenu(LPDIRECT3DDEVICE9 device)
+void menu::SetupMenu()
 {
 	if (isMenuSetup)
 		return;
@@ -66,7 +66,7 @@ void menu::SetupMenu(LPDIRECT3DDEVICE9 device)
 		return;
 
 	case RendererOptions::DX9:
-		ImGui_ImplDX9_Init(device);
+		ImGui_ImplDX9_Init(hooks::realDevice);
 		break;
 
 	case RendererOptions::DX10:
