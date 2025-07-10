@@ -34,6 +34,7 @@ void func::unload(const HMODULE instance)
 	if (menu::isMenuSetup) menu::Destroy();
 
     if (crd3d9::d3d9) gui::DestroyDirectX();
+	if (Dx11Hook::D3DInitalized) Dx11Hook::Destroy();
 
 	if (MinHook) func::DestroyMH();
 

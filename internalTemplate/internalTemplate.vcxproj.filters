@@ -393,6 +393,12 @@
     <ClInclude Include="renderes\d3d9\hooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="renderes\d3d11\dx11Hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\imgui\imgui_impl_dx11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\imgui\imgui.cpp">
@@ -477,6 +483,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="renderes\d3d9\hooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\d3d11\dx11Hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\imgui\imgui_impl_dx11.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

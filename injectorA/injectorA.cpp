@@ -5,7 +5,7 @@
 #include <libloaderapi.h>
 #include <TlHelp32.h>
 
-#define APP ".exe"
+#define APP "cs2.exe"
 #define DLL_NAME "internalTemplate.dll"
 
 using namespace std;

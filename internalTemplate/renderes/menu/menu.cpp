@@ -52,7 +52,7 @@ void menu::SetupMenu()
 		reinterpret_cast<LONG_PTR>(WindowsProcess)
 	);
 
-	if (Renderer == RendererOptions::OPENGL) IMGUI_CHECKVERSION();
+	if (Renderer == RendererOptions::OPENGL || Renderer == RendererOptions::DX11) IMGUI_CHECKVERSION();
 	
 	ImGui::CreateContext();
 
@@ -73,7 +73,8 @@ void menu::SetupMenu()
 		return;
 
 	case RendererOptions::DX11:
-		return;
+		ImGui_ImplDX11_Init(Dx11Hook::device, Dx11Hook::devcon);
+		break;
 
 	case RendererOptions::DX12:
 		return;
@@ -109,6 +110,8 @@ void menu::Render()
 	case RendererOptions::DX10:
 
 	case RendererOptions::DX11:
+		ImGui_ImplDX11_NewFrame();
+		break;
 
 	case RendererOptions::DX12:
 
@@ -144,6 +147,8 @@ void menu::Render()
 	case RendererOptions::DX10:
 
 	case RendererOptions::DX11:
+		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+		break;
 
 	case RendererOptions::DX12:
 
@@ -174,6 +179,8 @@ void menu::Destroy()
 	case RendererOptions::DX10:
 
 	case RendererOptions::DX11:
+		ImGui_ImplDX11_Shutdown();
+		break;
 
 	case RendererOptions::DX12:
 

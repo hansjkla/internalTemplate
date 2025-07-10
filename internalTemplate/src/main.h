@@ -7,4 +7,6 @@
 #include "../renderes/picker.h"
 #include "../ext/json/nlohmann/json.hpp"
 
+#include "../renderes/d3d11/dx11Hook.h"
+
 void entryPoint();

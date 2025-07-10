@@ -2,10 +2,10 @@
 #include "includes.h"
 #include "../src/conts.h"
 #include "../renderes/d3d9/crd3d9.h"
-//#include "../renderes/d3d9/hooks.h"
 #include "../ext/mihook/minhook.h"
 #include "../renderes/opengl/glhook.h"
 #include "../renderes/menu/menu.h"
+#include "../renderes/d3d11/dx11Hook.h"
 
 namespace func
 {

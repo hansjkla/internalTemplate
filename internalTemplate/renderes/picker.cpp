@@ -31,7 +31,7 @@ bool CreateRenderer(RendererOptions renderer)
 
     case RendererOptions::DX11:
         Renderer = RendererOptions::DX11;
-        return false;
+        return Dx11Hook::CreateHook();
 
     case RendererOptions::DX12:
         Renderer = RendererOptions::DX12;
