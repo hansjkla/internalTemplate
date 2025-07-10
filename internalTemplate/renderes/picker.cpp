@@ -20,18 +20,22 @@ bool CreateRenderer(RendererOptions renderer)
     {
     case RendererOptions::NONE:
         return false;
+
     case RendererOptions::DX9:
         Renderer = RendererOptions::DX9;
         return (crd3d9::Create());
 
     case RendererOptions::DX10:
         Renderer = RendererOptions::DX10;
+        return false;
 
     case RendererOptions::DX11:
         Renderer = RendererOptions::DX11;
+        return false;
 
     case RendererOptions::DX12:
         Renderer = RendererOptions::DX12;
+        return false;
 
     case RendererOptions::OPENGL:
         Renderer = RendererOptions::OPENGL;
@@ -39,6 +43,10 @@ bool CreateRenderer(RendererOptions renderer)
 
     case RendererOptions::VULKAN:
         Renderer = RendererOptions::VULKAN;
+        return false;
+        
+    default:
+        return false;
     }
 }
 
@@ -47,24 +55,22 @@ void DrawLine(float x1, float y1, float x2, float y2, float lineWidth, const uns
     switch (Renderer)
     {
     case RendererOptions::NONE:
-        return;
 
     case RendererOptions::DX9:
-        return;
+        return RenderQueue::Submit([x1, y1, x2, y2, lineWidth, color] { Dx9Drawing::DrawLine(x1, y1, x2, y2, lineWidth, color); });
 
     case RendererOptions::DX10:
-        return;
 
     case RendererOptions::DX11:
-        return;
 
     case RendererOptions::DX12:
-        return;
 
     case RendererOptions::OPENGL:
         return RenderQueue::Submit([x1, y1, x2, y2, lineWidth, color] {GL::DrawLine(x1, y1, x2, y2, lineWidth, color); });
 
     case RendererOptions::VULKAN:
+
+    default:
         return;
     }
 }
@@ -74,24 +80,22 @@ void DrawFilledRect(float x, float y, float width, float height, const unsigned 
     switch (Renderer)
     {
     case RendererOptions::NONE:
-        return;
 
     case RendererOptions::DX9:
         return RenderQueue::Submit([x, y, width, height, color] {Dx9Drawing::DrawFilledRect(x, y, width, height, color);  });
 
     case RendererOptions::DX10:
-        return;
 
     case RendererOptions::DX11:
-        return;
 
     case RendererOptions::DX12:
-        return;
 
     case RendererOptions::OPENGL:
         return RenderQueue::Submit([x, y, width, height, color] {GL::DrawFilledRect(x, y, width, height, color); });
 
     case RendererOptions::VULKAN:
+
+    default:
         return;
     }
 }
@@ -101,24 +105,22 @@ void DrawOutline(float x, float y, float width, float height, float lineWidth, c
     switch (Renderer)
     {
     case RendererOptions::NONE:
-        return;
 
     case RendererOptions::DX9:
-        return;
+        return RenderQueue::Submit([x, y, width, height, lineWidth, color] { Dx9Drawing::DrawOutline(x, y, width, height, lineWidth, color); });
 
     case RendererOptions::DX10:
-        return;
 
     case RendererOptions::DX11:
-        return;
 
     case RendererOptions::DX12:
-        return;
 
     case RendererOptions::OPENGL:
         return RenderQueue::Submit([x, y, width, height, lineWidth, color] {GL::DrawOutline(x, y, width, height, lineWidth, color); });
 
     case RendererOptions::VULKAN:
+
+    default:
         return;
     }
 }
@@ -128,24 +130,21 @@ void DrawCircle(float cx, float cy, float r, int num_segments, GLfloat lineWidth
     switch (Renderer)
     {
     case RendererOptions::NONE:
-        return;
 
     case RendererOptions::DX9:
-        return;
 
     case RendererOptions::DX10:
-        return;
 
     case RendererOptions::DX11:
-        return;
 
     case RendererOptions::DX12:
-        return;
 
     case RendererOptions::OPENGL:
         return RenderQueue::Submit([cx, cy, r, num_segments, lineWidth, color] {GL::DrawCircle(cx, cy, r, num_segments, lineWidth, color); });
 
     case RendererOptions::VULKAN:
+
+    default:
         return;
     }
 }
@@ -162,28 +161,21 @@ void Print(float x, float y, const unsigned char color[3], const char* format, .
     switch (Renderer)
     {
     case RendererOptions::NONE:
-        return;
 
     case RendererOptions::DX9:
-        return;
 
     case RendererOptions::DX10:
-        return;
 
     case RendererOptions::DX11:
-        return;
 
     case RendererOptions::DX12:
-        return;
 
     case RendererOptions::OPENGL:
-    {
-        return RenderQueue::Submit([=]() {
-            GL::Print(x, y, color, format, Buffer);
-            });
-    }
+        return RenderQueue::Submit([x, y, color, format, Buffer]() { GL::Print(x, y, color, format, Buffer); });
 
     case RendererOptions::VULKAN:
+
+    default:
         return;
     }
 }

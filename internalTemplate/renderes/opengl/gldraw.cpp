@@ -1,8 +1,5 @@
 #include "gldraw.h"
 
-GLint GL::Cviewport[4];
-GLint GL::ScreenWidth = NULL;
-GLint GL::ScreenHeight = NULL;
 
 void GL::SetupOrtho()
 {
@@ -15,12 +12,8 @@ void GL::SetupOrtho()
 	glLoadIdentity();
 	glOrtho(0, viewport[2], viewport[3], 0, -1, 1);
 
-	Cviewport[0] = viewport[0];
-	Cviewport[1] = viewport[1];
-	Cviewport[2] = viewport[2];
-	ScreenWidth = viewport[2];
-	Cviewport[3] = viewport[3];
-	ScreenHeight = viewport[3];
+	windowWidth = viewport[2];
+	windowHeight = viewport[3];
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();

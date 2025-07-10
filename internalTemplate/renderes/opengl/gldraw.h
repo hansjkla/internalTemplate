@@ -7,19 +7,6 @@
 
 namespace GL
 {
-	namespace rgb
-	{
-		const GLubyte red[3] = { 255, 0, 0 };
-		const GLubyte green[3] = { 0, 255, 0 };
-		const GLubyte gray[3] = { 55, 55, 55 };
-		const GLubyte lightgray[3] = { 192, 192, 192 };
-		const GLubyte black[3] = { 0, 0, 0 };
-	}
-
-	extern GLint Cviewport[4];
-	extern GLint ScreenWidth;
-	extern GLint ScreenHeight;
-
 	void SetupOrtho();
 	void RestoreGl();
 

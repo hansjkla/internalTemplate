@@ -8,6 +8,20 @@
 #include "opengl/glhook.h"
 #include "RendererOptions.h"
 
+
+namespace COLORS
+{
+	const unsigned char red[3] = { 255, 0, 0 };
+	const unsigned char green[3] = { 0, 255, 0 };
+	const unsigned char blue[3] = { 0, 0, 255 };
+	const unsigned char black[3] = { 0, 0, 0 };
+	const unsigned char white[3] = { 255, 255, 255 };
+
+	const unsigned char gray[3] = { 55, 55, 55 };
+	const unsigned char lightgray[3] = { 192, 192, 192 };
+}
+
+
 namespace RenderQueue
 {
 	inline std::vector<std::function<void()>> queue;

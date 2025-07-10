@@ -50,7 +50,13 @@ long __stdcall hooks::EndScene(IDirect3DDevice9* device) noexcept
 		auto params = D3DDEVICE_CREATION_PARAMETERS{};
 		device->GetCreationParameters(&params);
 
+		RECT wndRect{};
+
 		gameWindow = params.hFocusWindow;
+		GetWindowRect(params.hFocusWindow, &wndRect);
+
+		windowWidth = wndRect.right;
+		windowHeight = wndRect.bottom;
 	}
 	
 	RenderQueue::ExecuteAll();

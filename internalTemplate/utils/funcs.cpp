@@ -55,7 +55,7 @@ uintptr_t func::FindDMAAddy(const uintptr_t ptr, const std::vector<unsigned int>
 	if (!ptr) return NULL;
 
 	uintptr_t addr = ptr;
-	for (int i = 0; i < offsets.size(); i++)
+	for (unsigned int i = 0; i < offsets.size(); i++)
 	{
 		if (!addr)
 		{
