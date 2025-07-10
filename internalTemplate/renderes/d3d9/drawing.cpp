@@ -49,5 +49,23 @@ void Dx9Drawing::DrawOutline(float x, float y, float width, float height, float 
 
 void Dx9Drawing::DrawCircle(float cx, float cy, float r, int num_segments, float lineWidth, const unsigned char color[3])
 {
+	if (!hooks::realDevice || num_segments < 3 || num_segments + 1 > 64) return;
 
+	D3DCOLOR col = D3DCOLOR_ARGB(255, color[0], color[1], color[2]);
+
+	Vertex circle[64]{};
+
+	for (int i = 0; i < num_segments; ++i)
+	{
+		float theta = 2.0f * 3.1415926f * float(i) / float(num_segments);
+		float x = r * cosf(theta);
+		float y = r * sinf(theta);
+
+		circle[i] = {cx + x, cy + y, 0.0f, 1.0f, col};
+	}
+	
+	circle[num_segments] = circle[0];
+
+	hooks::realDevice->SetFVF(D3DFVF_VERTEX);
+	hooks::realDevice->DrawPrimitiveUP(D3DPT_LINESTRIP, num_segments , circle, sizeof(Vertex));
 }

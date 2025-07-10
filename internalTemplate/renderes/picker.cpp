@@ -125,13 +125,14 @@ void DrawOutline(float x, float y, float width, float height, float lineWidth, c
     }
 }
 
-void DrawCircle(float cx, float cy, float r, int num_segments, GLfloat lineWidth, const unsigned char color[3])
+void DrawCircle(float cx, float cy, float r, int num_segments, float lineWidth, const unsigned char color[3])
 {
     switch (Renderer)
     {
     case RendererOptions::NONE:
 
     case RendererOptions::DX9:
+        return RenderQueue::Submit([cx, cy, r, num_segments, lineWidth, color] { Dx9Drawing::DrawCircle(cx, cy, r, num_segments, lineWidth, color); });
 
     case RendererOptions::DX10:
 

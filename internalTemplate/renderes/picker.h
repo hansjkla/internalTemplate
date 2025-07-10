@@ -36,5 +36,5 @@ bool CreateRenderer(RendererOptions renderer);
 void DrawLine(float x1, float y1, float x2, float y2, float lineWidth, const unsigned char color[3]);
 void DrawFilledRect(float x, float y, float width, float height, const unsigned char color[3]);
 void DrawOutline(float x, float y, float width, float height, float lineWidth, const unsigned char color[3]);
-void DrawCircle(float cx, float cy, float r, int num_segments, GLfloat lineWidth, const unsigned char color[3]);
+void DrawCircle(float cx, float cy, float r, int num_segments, float lineWidth, const unsigned char color[3]);
 void Print(float x, float y, const unsigned char color[3], const char* format, ...);

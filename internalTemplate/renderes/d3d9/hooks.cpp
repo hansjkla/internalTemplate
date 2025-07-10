@@ -47,19 +47,21 @@ long __stdcall hooks::EndScene(IDirect3DDevice9* device) noexcept
 
 	if (!gameWindow)
 	{
-		auto params = D3DDEVICE_CREATION_PARAMETERS{};
+		D3DDEVICE_CREATION_PARAMETERS params{};
 		device->GetCreationParameters(&params);
 
-		RECT wndRect{};
-
 		gameWindow = params.hFocusWindow;
-		GetWindowRect(params.hFocusWindow, &wndRect);
 
-		windowWidth = wndRect.right;
-		windowHeight = wndRect.bottom;
+		RECT wndRect{};
+		GetWindowRect(gameWindow, &wndRect);
+
+		windowWidth = wndRect.right - wndRect.left;
+		windowHeight = wndRect.bottom - wndRect.top;
 	}
 	
 	RenderQueue::ExecuteAll();
+
+	//Dx9Drawing::DrawCircle(100, 500, 20.0f, 20, 1.0f, COLORS::blue);
 
 	if (!menu::isMenuSetup)
 		menu::SetupMenu();
