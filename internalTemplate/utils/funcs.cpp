@@ -44,6 +44,26 @@ void func::unload(const HMODULE instance)
 	FreeLibraryAndExitThread(instance, 0);
 }
 
+HWND func::getGameHWND()
+{
+	HWND result = nullptr;
+	DWORD myPid = GetCurrentProcessId();
+
+	EnumWindows([](HWND hwnd, LPARAM lParam) -> BOOL {
+		DWORD pid = 0;
+		GetWindowThreadProcessId(hwnd, &pid);
+
+		if (pid == GetCurrentProcessId() && IsWindowVisible(hwnd) && GetWindow(hwnd, GW_OWNER) == nullptr) {
+			*(HWND*)lParam = hwnd;
+			return FALSE; // found it, stop
+		}
+
+		return TRUE; // keep looking
+		}, (LPARAM)&result);
+
+	return result;
+}
+
 void func::DestroyMH()
 {
 	MH_DisableHook(MH_ALL_HOOKS);

@@ -24,6 +24,8 @@ namespace func
 
 	void unload(const HMODULE instance);
 
+	HWND getGameHWND();
+
 	void DestroyMH();
 
 	uintptr_t FindDMAAddy(const uintptr_t startAddress,const std::vector<unsigned int>);

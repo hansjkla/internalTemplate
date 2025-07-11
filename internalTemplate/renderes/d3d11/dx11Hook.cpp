@@ -40,15 +40,14 @@ HRESULT __stdcall Dx11Hook::hkPresent(IDXGISwapChain* swapChain, UINT syncInterv
 
 bool Dx11Hook::getPtrPresent()
 {
-	HWND Window = GetForegroundWindow();
-	gameWindow = Window;
+	gameWindow = func::getGameHWND();
 
 	DXGI_SWAP_CHAIN_DESC scd{ 0 };
 
 	scd.BufferCount = 2;
 	scd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	scd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-	scd.OutputWindow = Window;
+	scd.OutputWindow = gameWindow;
 	scd.SampleDesc.Count = 1;
 	scd.Windowed = true;
 	scd.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;

@@ -274,6 +274,7 @@
     <ClInclude Include="ext\mihook\hde\table64.h" />
     <ClInclude Include="ext\mihook\minhook.h" />
     <ClInclude Include="ext\mihook\trampoline.h" />
+    <ClInclude Include="renderes\d3d11\dx11Draw.h" />
     <ClInclude Include="renderes\d3d11\dx11Hook.h" />
     <ClInclude Include="renderes\d3d9\crd3d9.h" />
     <ClInclude Include="renderes\d3d9\drawing.h" />
@@ -307,6 +308,7 @@
     <ClCompile Include="ext\mihook\hde\hde64.c" />
     <ClCompile Include="ext\mihook\hook.c" />
     <ClCompile Include="ext\mihook\trampoline.c" />
+    <ClCompile Include="renderes\d3d11\dx11Draw.cpp" />
     <ClCompile Include="renderes\d3d11\dx11Hook.cpp" />
     <ClCompile Include="renderes\d3d9\crd3d9.cpp" />
     <ClCompile Include="renderes\d3d9\drawing.cpp" />

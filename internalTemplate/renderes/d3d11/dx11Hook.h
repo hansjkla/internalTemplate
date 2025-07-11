@@ -4,6 +4,7 @@
 
 #include "../../ext/mihook/minhook.h"
 #include "../../src/conts.h"
+#include "../../utils/funcs.h"
 #include "../menu/menu.h"
 
 typedef HRESULT(__stdcall* t_Present)(IDXGISwapChain*, UINT, UINT);
