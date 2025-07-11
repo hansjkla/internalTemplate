@@ -7,8 +7,7 @@
 
 namespace GL
 {
-	void SetupOrtho();
-	void RestoreGl();
+	void CreateGlContext(HDC hDc);
 
 	void DrawLine(float x1, float y1, float x2, float y2, float lineWidth, const GLubyte color[3]);
 	void DrawFilledRect(float x, float y, float width, float height, const GLubyte color[3]);

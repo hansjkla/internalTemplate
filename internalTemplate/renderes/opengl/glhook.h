@@ -20,6 +20,10 @@ namespace glHook
 
 	extern LPVOID targetFunc;
 	extern bool GlEnabled;
+	extern bool contextCreated;
+
+	extern HGLRC gameContext;
+	extern HGLRC ownContext;
 
 	BOOL __stdcall hkwglSawpBuffers(HDC hDc);
 

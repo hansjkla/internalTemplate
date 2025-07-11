@@ -1,30 +1,34 @@
 #include "gldraw.h"
 
 
-void GL::SetupOrtho()
+void GL::CreateGlContext(HDC hDc)
 {
+	glHook::gameContext = wglGetCurrentContext();
+
 	glPushAttrib(GL_ALL_ATTRIB_BITS);
 	glPushMatrix();
 	GLint viewport[4];
 	glGetIntegerv(GL_VIEWPORT, viewport);
-	glViewport(0, 0, viewport[2], viewport[3]);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0, viewport[2], viewport[3], 0, -1, 1);
 
 	windowWidth = viewport[2];
 	windowHeight = viewport[3];
 
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glDisable(GL_DEPTH_TEST);
-}
-
-void GL::RestoreGl()
-{
 	glPopMatrix();
 	glPopAttrib();
+
+	glHook::ownContext = wglCreateContext(hDc);
+	wglMakeCurrent(hDc, glHook::ownContext);
+	
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, viewport[2], viewport[3], 0, -1, 1);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glClearColor(0, 0, 0, 1.0);
+
+	wglMakeCurrent(hDc, glHook::gameContext);
 }
+
 
 void GL::DrawLine(float x1, float y1, float x2, float y2, float lineWidth, const GLubyte color[3])
 {

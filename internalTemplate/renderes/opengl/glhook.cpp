@@ -6,6 +6,10 @@ LPVOID glHook::targetFunc = nullptr;
 bool glHook::GlEnabled = false;
 GL::Font glHook::glFont;
 
+bool glHook::contextCreated = false;
+
+HGLRC glHook::gameContext = nullptr;
+HGLRC glHook::ownContext = nullptr;
 
 unsigned int glHook::base = 0;
 
@@ -23,16 +27,24 @@ BOOL __stdcall glHook::hkwglSawpBuffers(HDC hDc)
 
     base = glFont.base;
 
-    GL::SetupOrtho();
+    if (!contextCreated)
+    {
+        GL::CreateGlContext(hDc);
+        contextCreated = true;
+    }
+    
+    wglMakeCurrent(hDc, ownContext);
 
     RenderQueue::ExecuteAll();
     menu::SetupMenu();
     menu::Render();
 
-    GL::RestoreGl();
+    wglMakeCurrent(hDc, gameContext);
+
     
 	return owglSwapBuffers(hDc);
 }
+
 
 bool glHook::CreateGl()
 {
