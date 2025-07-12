@@ -7,6 +7,7 @@
 #include "d3d9/crd3d9.h"
 #include "opengl/glhook.h"
 #include "d3d11/dx11Hook.h"
+#include "d3d12/dx12Hook.h"
 #include "RendererOptions.h"
 
 

@@ -402,6 +402,12 @@
     <ClInclude Include="renderes\d3d11\dx11Draw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ext\imgui\imgui_impl_dx12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderes\d3d12\dx12Hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\imgui\imgui.cpp">
@@ -495,6 +501,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="renderes\d3d11\dx11Draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\imgui\imgui_impl_dx12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderes\d3d12\dx12Hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

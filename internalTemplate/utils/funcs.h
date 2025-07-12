@@ -6,6 +6,7 @@
 #include "../renderes/opengl/glhook.h"
 #include "../renderes/menu/menu.h"
 #include "../renderes/d3d11/dx11Hook.h"
+#include "../renderes/d3d12/dx12Hook.h"
 
 namespace func
 {

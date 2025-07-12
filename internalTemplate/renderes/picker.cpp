@@ -35,7 +35,7 @@ bool CreateRenderer(RendererOptions renderer)
 
     case RendererOptions::DX12:
         Renderer = RendererOptions::DX12;
-        return false;
+        return Dx12Hook::CreateHook();
 
     case RendererOptions::OPENGL:
         Renderer = RendererOptions::OPENGL;

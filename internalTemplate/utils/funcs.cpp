@@ -35,6 +35,7 @@ void func::unload(const HMODULE instance)
 
     if (crd3d9::d3d9) gui::DestroyDirectX();
 	if (Dx11Hook::D3DInitalized) Dx11Hook::Destroy();
+	if (Dx12Hook::Dx12Enabled) Dx12Hook::Destroy();
 
 	if (MinHook) func::DestroyMH();
 

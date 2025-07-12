@@ -166,6 +166,7 @@
     <ClInclude Include="ext\imgui\imconfig.h" />
     <ClInclude Include="ext\imgui\imgui.h" />
     <ClInclude Include="ext\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="ext\imgui\imgui_impl_dx12.h" />
     <ClInclude Include="ext\imgui\imgui_impl_dx9.h" />
     <ClInclude Include="ext\imgui\imgui_impl_opengl3.h" />
     <ClInclude Include="ext\imgui\imgui_impl_opengl3_loader.h" />
@@ -276,6 +277,7 @@
     <ClInclude Include="ext\mihook\trampoline.h" />
     <ClInclude Include="renderes\d3d11\dx11Draw.h" />
     <ClInclude Include="renderes\d3d11\dx11Hook.h" />
+    <ClInclude Include="renderes\d3d12\dx12Hook.h" />
     <ClInclude Include="renderes\d3d9\crd3d9.h" />
     <ClInclude Include="renderes\d3d9\drawing.h" />
     <ClInclude Include="renderes\d3d9\gui.h" />
@@ -298,6 +300,7 @@
     <ClCompile Include="ext\imgui\imgui_demo.cpp" />
     <ClCompile Include="ext\imgui\imgui_draw.cpp" />
     <ClCompile Include="ext\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ext\imgui\imgui_impl_dx12.cpp" />
     <ClCompile Include="ext\imgui\imgui_impl_dx9.cpp" />
     <ClCompile Include="ext\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ext\imgui\imgui_impl_win32.cpp" />
@@ -310,6 +313,7 @@
     <ClCompile Include="ext\mihook\trampoline.c" />
     <ClCompile Include="renderes\d3d11\dx11Draw.cpp" />
     <ClCompile Include="renderes\d3d11\dx11Hook.cpp" />
+    <ClCompile Include="renderes\d3d12\dx12Hook.cpp" />
     <ClCompile Include="renderes\d3d9\crd3d9.cpp" />
     <ClCompile Include="renderes\d3d9\drawing.cpp" />
     <ClCompile Include="renderes\d3d9\gui.cpp" />
